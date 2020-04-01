@@ -5,7 +5,7 @@ Seguem abaixo as instruções para configuração do ambiente e inicialização 
 Tecnologias e Ferramentas utilizadas no desenvolvimento do módulo:
 
 - Ferramentas: Java(versão JDk1.8), Spring Tool Suite-4(versão 4.5.1), MongoDb(versão 4.2.5), MySQL MongoDb Compass(versão 1.20.5) 
-- Tecnologias: Java, Spring Boot, MongoDb, Maven, Junit, Mockito.
+- Tecnologias: Java, Spring Boot, MongoDb, Maven, Json, Junit, Mockito.
 
 Ferramentas necessárias para a configuração do ambiente:
 
