@@ -8,8 +8,8 @@ Tecnologias: Java, Spring Boot, MongoDb, Maven, Junit, Mockito.
 
 Ferramentas necessárias para a configuração do ambiente:
 
-Java (versão JDK1.8)
-Spring Tool Suite 4 (versão 4.5.1)
-MongoDb (versão 4.2.5)
+Java (versão JDK1.8) -
+Spring Tool Suite 4 (versão 4.5.1) -
+MongoDb (versão 4.2.5).
 
 Após todo a ambiente configurado, segue o link inicial do módulo para testes (http://localhost:8080/api/starWars).
