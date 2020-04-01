@@ -1,4 +1,4 @@
-#API-REST-Star-Wars
+# API-REST-Star-Wars
 
 Seguem abaixo as instruções para configuração do ambiente e inicialização do módulo desenvolvido para o desafio.
 
