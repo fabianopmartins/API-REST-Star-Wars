@@ -52,7 +52,6 @@ public class PlanetRepositoryTest {
 
 		MockitoAnnotations.initMocks(this);
 		planetServiceImpl = new PlanetServiceImpl(planetRepository);
-
 	}
 
 	@Test
@@ -103,9 +102,8 @@ public class PlanetRepositoryTest {
 	public void whenFindPlanetForInvalidNameTest() {
 
 		planet = new Planet(ID, NAME, CLIMATE, TERRAIN, FILMS);
-		when(planetRepository.findByThePlanetsName(NAME)).thenReturn(null);
+		when(planetRepository.findByThePlanetsName("Arack")).thenReturn(planet);
 		assertThat(planetServiceImpl.findByName(NAME)).isEqualTo(null);
-
 	}
 
 	@Test
@@ -114,25 +112,6 @@ public class PlanetRepositoryTest {
 		planet = new Planet(ID, NAME, CLIMATE, TERRAIN, FILMS);
 		when(planetRepository.save(planet)).thenReturn(planet);
 		assertThat(planetServiceImpl.save(planet)).isEqualTo(planet);
-		verify(planetRepository, times(1)).save(planet);
-	}
-
-	@Test
-	public void dontSavePlanetWhenNameIsEmptyTest()
-			throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
-
-		planet = new Planet(ID, "", CLIMATE, TERRAIN, FILMS);
-		when(planetRepository.save(planet)).thenReturn(planet);
-		assertThat(planetServiceImpl.save(planet).getName()).isEqualTo("");
-	}
-
-	@Test
-	public void dontSaveDuplicatesPlanetsTest()
-			throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
-
-		planet = new Planet(ID, NAME, CLIMATE, TERRAIN, FILMS);
-		when(planetRepository.save(planet)).thenReturn(planet);
-		when(planetRepository.findByThePlanetsName(planet.getName())).thenReturn(planet);
 		verify(planetRepository, times(1)).save(planet);
 	}
 

@@ -32,25 +32,17 @@ public class PlanetRestController {
 
 	@Autowired
 	private PlanetServiceImpl planetServiceImpl;
-
-	@GetMapping(value = "/planetFilms/{name}")
+	
+	@GetMapping(value = "/planet")
 	@ResponseBody
-	public ResponseEntity<String> getFilms(@PathVariable("name") String name)
-			throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
-
-		return ResponseEntity.ok(planetServiceImpl.consumerAPI(name));
-	}
-
-	@GetMapping(value = "/planets")
-	@ResponseBody
-	public ResponseEntity<List<Planet>> getPlanets() {
+	public ResponseEntity<List<Planet>> getAllPlanets() {
 
 		return ResponseEntity.ok(planetServiceImpl.findAll());
 	}
 
 	@GetMapping(value = "/planet/{id}")
 	@ResponseBody
-	public ResponseEntity<Optional<Planet>> getPlanet(@PathVariable("id") String id) {
+	public ResponseEntity<Optional<Planet>> getPlanetById(@PathVariable("id") String id) {
 
 		return ResponseEntity.ok(planetServiceImpl.findByid(id));
 	}
@@ -58,17 +50,17 @@ public class PlanetRestController {
 	@GetMapping(value = "/planetName/{name}")
 	@ResponseBody
 	public ResponseEntity<Planet> getPlanetByName(@PathVariable("name") String name) {
-		
+
 		return ResponseEntity.ok(planetServiceImpl.findByName(name));
 	}
-	
+
 	@PostMapping(value = "/planet")
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
-	public Planet savePlanet(@Valid @RequestBody Planet planet)
+	public ResponseEntity<Planet> savePlanet(@Valid @RequestBody Planet planet)
 			throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
-		
-		return planetServiceImpl.save(planet);
+
+		return ResponseEntity.ok(planetServiceImpl.save(planet));
 	}
 
 	@DeleteMapping(value = "/planet/{id}")
